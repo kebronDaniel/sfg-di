@@ -3,6 +3,7 @@ package com.guru.springDI.config;
 
 import com.guru.springDI.exampleBean.FakeDataSource;
 import com.guru.springDI.exampleBean.JmsDataSource;
+import com.guru.springDI.exampleBean.YmlDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -35,6 +36,9 @@ public class PropertyConfig {
     @Value("${jms.name}")
     private String JmsName;
 
+    @Value("${user.name}")
+    private String ymlUsername;
+
     @Bean
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
@@ -55,6 +59,13 @@ public class PropertyConfig {
         JmsDataSource jmsDataSource = new JmsDataSource();
         jmsDataSource.setName(JmsName);
         return jmsDataSource;
+    }
+
+    @Bean
+    public YmlDataSource ymlDataSource(){
+        YmlDataSource ymlDataSource = new YmlDataSource();
+        ymlDataSource.setName("ymlUsername");
+        return ymlDataSource;
     }
 
     @Bean

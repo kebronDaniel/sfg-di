@@ -7,6 +7,7 @@ import com.guru.springDI.controllers.SampleController;
 import com.guru.springDI.controllers.SampleControllerTwo;
 import com.guru.springDI.exampleBean.FakeDataSource;
 import com.guru.springDI.exampleBean.JmsDataSource;
+import com.guru.springDI.exampleBean.YmlDataSource;
 import com.guru.springDI.services.GreetingsInterfaceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,6 +37,10 @@ public class SpringDiApplication {
 		JmsDataSource jmsDataSource = (JmsDataSource) scx.getBean(JmsDataSource.class);
 		System.out.println("---using another properties file---");
 		System.out.println(jmsDataSource.getName());
+
+		System.out.println("-------Yml source --------");
+		YmlDataSource ymlDataSource = (YmlDataSource) scx.getBean(YmlDataSource.class);
+		System.out.println(ymlDataSource.getName());
 	}
 
 }
